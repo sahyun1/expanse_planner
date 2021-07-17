@@ -83,7 +83,7 @@ class _NewTransactionState extends State<NewTransaction> {
                   ),
                   FlatButton(
                       onPressed: _presentDatePicker,
-                      textColor: Theme.of(context).accentColor,
+                      textColor: Theme.of(context).primaryColor,
                       child: Text(
                         'Choose Date',
                         style: TextStyle(fontWeight: FontWeight.bold),
@@ -93,7 +93,7 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
             RaisedButton(
               child: Text('Add Transaction'),
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).primaryColor,
               textColor: Theme.of(context).textTheme.button.color,
               onPressed: _submitData,
             ),
