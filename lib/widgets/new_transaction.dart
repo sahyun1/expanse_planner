@@ -13,7 +13,7 @@ class NewTransaction extends StatefulWidget {
 class _NewTransactionState extends State<NewTransaction> {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
-  DateTime selectedDate;
+  DateTime selectedDate = DateTime.now();
 
   void _presentDatePicker() {
     showDatePicker(
@@ -33,6 +33,9 @@ class _NewTransactionState extends State<NewTransaction> {
   }
 
   void _submitData() {
+    if (amountController.text.isEmpty) {
+      return;
+    }
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
@@ -40,10 +43,7 @@ class _NewTransactionState extends State<NewTransaction> {
       return;
     }
 
-    widget.addTx(
-      enteredTitle,
-      enteredAmount,
-    );
+    widget.addTx(enteredTitle, enteredAmount, selectedDate);
 
     Navigator.of(context).pop();
   }
